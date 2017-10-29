@@ -37,5 +37,5 @@ int main() {
             bresenham((int)(cx + r1 * ct), (int)(cy - r1 * st), (int)(cx + r2 * ct), (int)(cy - r2 * st));
         }
     }
-    svpng(fopen("line_bresenham.png", "w"), w, h, img, 0);
+    svpng(fopen("line_bresenham.png", "wb"), w, h, img, 0);
 }

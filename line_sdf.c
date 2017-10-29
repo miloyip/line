@@ -31,5 +31,5 @@ int main() {
     for (int y = 0; y < h; y++)
         for (int x = 0; x < w; x++, p += 3)
             p[0] = p[1] = p[2] = (unsigned char)((1.0f - sample(x, y)) * 255);
-    svpng(fopen("line_sdf.png", "w"), w, h, img, 0);
+    svpng(fopen("line_sdf.png", "wb"), w, h, img, 0);
 }

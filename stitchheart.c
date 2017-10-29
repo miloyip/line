@@ -44,5 +44,5 @@ int main() {
         S(PI * 1.5f, PI * 1.5f - t);
         S(PI * 1.5f, PI * 1.5f + t);
     }
-    svpng(fopen("stitchheart.png", "w"), w, h, img, 0);
+    svpng(fopen("stitchheart.png", "wb"), w, h, img, 0);
 }
