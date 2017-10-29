@@ -28,6 +28,8 @@ Represent lines as capsule shapes, in order to support real-valued coordinates a
 
 Simple anti-aliasing with 5x5 super sampling.
 
+![line_supersampling.c](line_supersampling.c)
+
 ![ ](line_supersampling.png)
 ![ ](line_supersampling_zoom.png)
 
@@ -35,12 +37,16 @@ Simple anti-aliasing with 5x5 super sampling.
 
 Using signed distnace field (SDF) of capsule shape to perform anti-aliasing with single sample per pixel.
 
+![line_sdf.c](line_sdf.c)
+
 ![ ](line_sdf.png)
 ![ ](line_sdf_zoom.png)
 
 ## SDF optimization with AABB
 
 Use AABB of capsule to reduce the number of samples. Render shapes into the buffer individually with alpha blending.
+
+![line_sdfaabb.c](line_sdfaabb.c)
 
 ![ ](line_sdfaabb.png)
 ![ ](line_sdfaabb_zoom.png)
