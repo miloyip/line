@@ -37,5 +37,5 @@ int main() {
             p[0] = p[1] = p[2] = (unsigned char)((1.0f - sum / (sw * sh)) * 255);
         }
 
-    svpng(fopen("line_supersampling.png", "w"), 512, 512, img, 0);
+    svpng(fopen("line_supersampling.png", "w"), w, h, img, 0);
 }

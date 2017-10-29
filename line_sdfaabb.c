@@ -42,5 +42,5 @@ int main() {
             lineSDFAABB(cx + r1 * ct, cy - r1 * st, cx + r2 * ct, cy - r2 * st, r);
         }
     }
-    svpng(fopen("line_sdfaabb.png", "w"), 512, 512, img, 0);
+    svpng(fopen("line_sdfaabb.png", "w"), w, h, img, 0);
 }
