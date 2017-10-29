@@ -3,8 +3,8 @@ OUTPUTS=$(addsuffix .png, $(TARGETS))
 ZOOM=$(addsuffix _zoom.png, $(TARGETS))
 CROP=$(addsuffix _crop.png, $(TARGETS))
 
-all: $(TARGETS)
-test: $(TARGETS) $(OUTPUTS)
+all: $(TARGETS) stitchheart
+test: $(TARGETS) $(OUTPUTS) stitchheart.png
 zoom: $(TARGETS) $(ZOOM)
 montage: $(TARGETS) line_montage_zoom.png
 
