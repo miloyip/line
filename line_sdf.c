@@ -1,5 +1,5 @@
 #include "svpng.inc"
-#include <math.h>
+#include <math.h> // fminf(), fmaxf(), sinf(), cosf(), sqrtf()
 #define PI 3.14159265359f
 
 static const int w = 512, h = 512;

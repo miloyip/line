@@ -1,5 +1,5 @@
 #include "svpng.inc"
-#include <math.h>   // ceilf(), floorf(), fminf(), fmaxf(), cosf(), sinf(), sqrtf()
+#include <math.h>   // ceilf(), floorf(), fminf(), fmaxf(), sinf(), cosf(), sqrtf()
 #include <string.h> // memset()
 #define PI 3.14159265359f
 

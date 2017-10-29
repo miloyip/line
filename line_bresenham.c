@@ -1,5 +1,5 @@
 #include "svpng.inc"
-#include <math.h>   // fmaxf(), cosf(), sinf()
+#include <math.h>   // fmaxf(), sinf(), cosf()
 #include <stdlib.h> // abs()
 #include <string.h> // memset()
 #define PI 3.14159265359f
