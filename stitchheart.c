@@ -2,9 +2,9 @@
 #include <math.h>   // ceilf(), floorf(), fminf(), fmaxf(), sinf(), cosf(), sqrtf()
 #include <string.h> // memset()
 #define PI 3.14159265359f
-
-static const int w = 1024, h = 1024;
-static unsigned char img[w * h * 3];
+#define W 1024
+#define H 1024
+static unsigned char img[W * H * 3];
 
 float capsuleSDF(float px, float py, float ax, float ay, float bx, float by, float r) {
     float pax = px - ax, pay = py - ay, bax = bx - ax, bay = by - ay;
@@ -14,7 +14,7 @@ float capsuleSDF(float px, float py, float ax, float ay, float bx, float by, flo
 }
 
 void alphablend(int x, int y, float alpha, float r, float g, float b) {
-    unsigned char* p = img + (y * w + x) * 3;
+    unsigned char* p = img + (y * W + x) * 3;
     p[0] = (unsigned char)(p[0] * (1 - alpha) + r * alpha * 255);
     p[1] = (unsigned char)(p[1] * (1 - alpha) + g * alpha * 255);
     p[2] = (unsigned char)(p[2] * (1 - alpha) + b * alpha * 255);
@@ -32,8 +32,8 @@ void lineSDFAABB(float ax, float ay, float bx, float by, float r) {
 
 int main() {
     memset(img, 255, sizeof(img));
-    float cx = w * 0.5f, cy = h * 0.5f;
-    float r = fminf(w, h) * 0.45f;
+    float cx = W * 0.5f, cy = H * 0.5f;
+    float r = fminf(W, H) * 0.45f;
 #define S(a, b) lineSDFAABB(cx + r * cosf(a), cy - r * sinf(a), cx + r * cosf(b), cy - r * sinf(b), 0.5f)
     for (int i = 0; i <= 64; i++) {
         float t = i * (0.5f * PI / 64.0f);
@@ -44,5 +44,5 @@ int main() {
         S(PI * 1.5f, PI * 1.5f - t);
         S(PI * 1.5f, PI * 1.5f + t);
     }
-    svpng(fopen("stitchheart.png", "wb"), w, h, img, 0);
+    svpng(fopen("stitchheart.png", "wb"), W, H, img, 0);
 }

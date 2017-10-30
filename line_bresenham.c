@@ -1,14 +1,14 @@
 #include "svpng.inc"
-#include <math.h>   // fmaxf(), sinf(), cosf()
-#include <stdlib.h> // abs()
-#include <string.h> // memset()
+#include <math.H>   // fmaxf(), sinf(), cosf()
+#include <stdlib.H> // abs()
+#include <string.H> // memset()
 #define PI 3.14159265359f
-
-static const int w = 512, h = 512;
-static unsigned char img[w * h * 3];
+#define W 512
+#define H 512
+static unsigned char img[W * H * 3];
 
 void setpixel(int x, int y) {
-    unsigned char* p = img + (y * w + x) * 3;
+    unsigned char* p = img + (y * W + x) * 3;
     p[0] = p[1] = p[2] = 0;
 }
 
@@ -27,15 +27,15 @@ void bresenham(int x0, int y0, int x1, int y1) {
 
 int main() {
     memset(img, 255, sizeof(img));
-    float cx = w * 0.5f - 0.5f, cy = h * 0.5f - 0.5f;
+    float cx = W * 0.5f - 0.5f, cy = H * 0.5f - 0.5f;
     for (int j = 0; j < 5; j++) {
-        float r1 = fmaxf(w, h) * (j + 0.5f) * 0.085f;
-        float r2 = fmaxf(w, h) * (j + 1.5f) * 0.085f;
+        float r1 = fmaxf(W, H) * (j + 0.5f) * 0.085f;
+        float r2 = fmaxf(W, H) * (j + 1.5f) * 0.085f;
         float t = j * PI / 64.0f;
         for (int i = 1; i <= 64; i++, t += 2.0f * PI / 64.0f) {
             float ct = cosf(t), st = sinf(t);
             bresenham((int)(cx + r1 * ct), (int)(cy - r1 * st), (int)(cx + r2 * ct), (int)(cy - r2 * st));
         }
     }
-    svpng(fopen("line_bresenham.png", "wb"), w, h, img, 0);
+    svpng(fopen("line_bresenham.png", "wb"), W, H, img, 0);
 }
