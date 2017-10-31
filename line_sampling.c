@@ -15,8 +15,8 @@ int capsule(float px, float py, float ax, float ay, float bx, float by, float r)
 float sample(float x, float y) {
     float s = 0.0f, cx = W * 0.5f, cy = H * 0.5f;
     for (int j = 0; j < 5; j++) {
-        float r1 = fmaxf(W, H) * (j + 0.5f) * 0.085f;
-        float r2 = fmaxf(W, H) * (j + 1.5f) * 0.085f;
+        float r1 = fminf(W, H) * (j + 0.5f) * 0.085f;
+        float r2 = fminf(W, H) * (j + 1.5f) * 0.085f;
         float t = j * PI / 64.0f, r = (j + 1) * 0.5f;
         for (int i = 1; i <= 64; i++, t += 2.0f * PI / 64.0f) {
             float ct = cosf(t), st = sinf(t);

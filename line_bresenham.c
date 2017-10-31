@@ -1,7 +1,7 @@
 #include "svpng.inc"
-#include <math.H>   // fmaxf(), sinf(), cosf()
-#include <stdlib.H> // abs()
-#include <string.H> // memset()
+#include <math.h>   // fmaxf(), sinf(), cosf()
+#include <stdlib.h> // abs()
+#include <string.h> // memset()
 #define PI 3.14159265359f
 #define W 512
 #define H 512
@@ -29,8 +29,8 @@ int main() {
     memset(img, 255, sizeof(img));
     float cx = W * 0.5f - 0.5f, cy = H * 0.5f - 0.5f;
     for (int j = 0; j < 5; j++) {
-        float r1 = fmaxf(W, H) * (j + 0.5f) * 0.085f;
-        float r2 = fmaxf(W, H) * (j + 1.5f) * 0.085f;
+        float r1 = fminf(W, H) * (j + 0.5f) * 0.085f;
+        float r2 = fminf(W, H) * (j + 1.5f) * 0.085f;
         float t = j * PI / 64.0f;
         for (int i = 1; i <= 64; i++, t += 2.0f * PI / 64.0f) {
             float ct = cosf(t), st = sinf(t);
