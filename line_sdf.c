@@ -8,7 +8,7 @@ static unsigned char img[W * H * 3];
 float capsuleSDF(float px, float py, float ax, float ay, float bx, float by, float r) {
     float pax = px - ax, pay = py - ay, bax = bx - ax, bay = by - ay;
     float h = fmaxf(fminf((pax * bax + pay * bay) / (bax * bax + bay * bay), 1.0f), 0.0f);
-    float dx = pax - bax * H, dy = pay - bay * h;
+    float dx = pax - bax * h, dy = pay - bay * h;
     return sqrtf(dx * dx + dy * dy) - r;
 }
 
